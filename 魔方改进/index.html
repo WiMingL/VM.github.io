@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery-3.3.1.js"></script>
+    <script src="tool.js"></script>
+    <title>魔方</title>
+</head>
+<body>
+    <div class="warpper">
+        <div class="control-panel">
+            <div class="row">
+                <button class="start-count">开始计时</button>
+            </div>
+            <div class="row">
+                <button class="stop-count">暂停计时</button>
+            </div>
+            <div class="row">
+                <button onclick="upsetLayou()" class="upset-layou">一键打乱</button>
+            </div>
+            <div class="row">
+                <p>计时:<span class="time">0</span></p>
+            </div>
+            <div class="row">
+                <p>步数:<span class="step">0</span></p>
+            </div>
+        </div>
+        <div class="box-content">
+            <div class="rotate-size"></div>
+            <div class="rotate-module cube1">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+                
+            </div>
+            <div class="rotate-module cube2">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube3">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube4">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube5">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube6">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube7">
+                 <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube8">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube9">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube10">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube11">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube12">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube13">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube14">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube15">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube16">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube17">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange size-black"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube18">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube19">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube20">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube21">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube22">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange "></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube23">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte size-black"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube24">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube25">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange"></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green size-black"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+            <div class="rotate-module cube26">
+                <div class="sigle-module"> 
+                    <span class="sigle-size sigle-up size-color-red size-black"></span>
+                    <span class="sigle-size sigle-bottom size-color-orange "></span>
+                    <span class="sigle-size sigle-left size-color-blue size-black"></span>
+                    <span class="sigle-size sigle-right size-color-green"></span>
+                    <span class="sigle-size sigle-front size-color-wihte"></span>
+                    <span class="sigle-size sigle-back size-color-yellow size-black"></span>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
